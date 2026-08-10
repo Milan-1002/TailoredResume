@@ -1,0 +1,96 @@
+# Fit Score Report
+
+**Role:** Java Developer (Microservices & Cloud) (senior)
+
+## Scores (two separate axes — never blended)
+
+- **Keyword coverage: 31.5%** — the deterministic % of JD-relevant keywords/skills that literally appear somewhere in the master resume.
+- **Substantive fit score: 54.7%** — a weighted average of the LLM judge's evidence strength per requirement (must-haves weighted 3x nice-to-haves); this reflects real evidence, not keyword overlap.
+
+## Must-Have Gaps (unresolved — no path to fabricate these)
+
+- Experience in working with Java Version 18 or above is mandatory
+- Knowledge of Microsoft Azure cloud platform, including Azure App Service, Azure Functions, Azure SQL, and Azure Cosmos DB
+- Strong problem-solving abilities, good communication (written & verbal) skills, and the ability to work effectively in a team
+- Bachelor's degree in computer science or a related field is required
+
+## Per-Requirement Detail
+
+| Requirement | Coverage | Reasoning |
+|---|---|---|
+| 5-6 years hands-on experience in Java development at enterprise level (recent) | 1 (partial) | The requirement asks for 5-6 years of hands-on Java development experience at the enterprise level. The bullets collectively show Java development work across multiple enterprise-grade employers (State Street Bank, Tenet Health, Fannie Mae) using enterprise-relevant technologies (Spring MVC, Spring Boot, Spring Cloud, J2EE, RESTful services, microservices, GCP). This is strong evidence of enterprise Java work with real depth and variety. However, the critical gap is that no bullet explicitly states a duration or tenure — the requirement is fundamentally about years of experience, and resume bullets alone cannot confirm 5-6 years without date ranges or a summary statement. The bullets demonstrate the *quality* and *nature* of enterprise Java work (partial/adjacent evidence for the skill dimension), but cannot satisfy the *quantity* dimension (years of experience). Therefore, coverage is 1 (partial): the bullets confirm relevant enterprise Java skills and responsibilities, but do not directly evidence the required duration of experience. |
+| Experience in working with Java Version 18 or above is mandatory | 0 (none) | All five bullets mention Java, but none of them reference Java 18 or any version at or above 18. None of the implied skills for Java 18+ (records, sealed classes, pattern matching, virtual threads) appear in any bullet. The bullets describe general Java usage (collections, multithreading via Executor Service, Spring Boot, Spring MVC, JDBC/JPA, Angular integration) — these are core Java features and framework integrations that have existed across many older Java versions. Keyword overlap on 'Java' alone is not sufficient evidence; there is no indication the candidate has worked with Java 18 or its modern language features. |
+| 3-4 years of hands-on experience with Apache Kafka, including producers, consumers, topic management, message serialization, and performance tuning | 1 (partial) | The candidate has clear, real Kafka experience across multiple employers, which is meaningful. However, the coverage falls short of a full match for several reasons:
+
+1. **Bullet 4eec91d1** (parallel Kafka listeners) demonstrates consumer-side experience — capturing, validating, and processing real-time events. This is direct but narrow, covering only one aspect (consumers) of the requirement.
+
+2. **Bullet ec1de869** (Kafka + Zookeeper as message broker for microservices) shows integration and message broker experience, touching on producers/consumers in an async context, but lacks specifics on topic management, serialization, or tuning.
+
+3. **Bullet 79849bbd** (Kafka partition tuning + dead letter queues) is the strongest partial match — partition tuning is directly related to performance tuning, and dead letter queues relate to error-handling in consumer workflows. However, it doesn't address serialization (e.g., Avro/JSON), producer configuration, or topic management explicitly.
+
+**What's missing for a full coverage=2 score:**
+- No mention of producers explicitly
+- No evidence of message serialization (Avro, JSON, Schema Registry)
+- No topic management (creation, retention, replication factors, etc.)
+- No quantified performance tuning outcomes
+- No indication of years of experience — the requirement asks for 3-4 years, and the bullets span two employers but give no tenure signal
+
+**Rejected bullets:**
+- **fb3fcd7a** (Spring Boot on GCP) — no Kafka content; cloud microservices deployment is a different domain.
+- **fa272745** (GCP Pub/Sub) — while Pub/Sub is a related message broker concept and event-driven in nature, it is a different technology from Kafka and does not constitute Kafka experience.
+
+Overall, the candidate shows partial, real-world Kafka experience touching a subset of the required skills (consumers, basic broker integration, some performance tuning), but does not demonstrably cover the full breadth of the requirement. |
+| 2-3 years of solid experience in Kubernetes, including pod configuration, service discovery, scaling, and troubleshooting | 1 (partial) | Multiple bullets across different employers confirm real Kubernetes usage — deployment, scaling, fault tolerance, and Docker-based container orchestration are all mentioned. This establishes genuine, recurring Kubernetes experience. However, coverage is capped at 1 rather than 2 for the following reasons:
+
+1. **Specificity gap**: The JD explicitly requires pod configuration, service discovery, and troubleshooting. None of the bullets mention pod-level configuration (e.g., resource limits, liveness/readiness probes, ConfigMaps/Secrets), service discovery mechanisms, or troubleshooting activities. The bullets are high-level and operational in nature, not technically detailed.
+
+2. **No implied skills evidenced**: None of the bullets mention Helm, kubectl, or other Kubernetes tooling that would corroborate hands-on depth.
+
+3. **Years of experience unverifiable**: The JD requires 2-3 years. The bullets span multiple employers and roles, suggesting some tenure, but no dates or durations are provided in the bullets themselves, making it impossible to confirm the experience threshold.
+
+4. **Bullet fb3fcd7a** (GCP/Spring Boot) was excluded as it contains no Kubernetes content at all.
+
+Overall, the bullets are partial evidence — they confirm Kubernetes is in the candidate's toolkit across multiple contexts, but fall short of demonstrating the full breadth and depth (pod config, service discovery, troubleshooting) required by the JD. |
+| Strong programming skills in Java, including object-oriented programming principles and design patterns | 2 (strong) | Bullet 946231f7 is the strongest match: it explicitly mentions architecting enterprise Java applications using named Gang of Four / enterprise design patterns (Factory, Singleton, Session Facade, DAO), which directly satisfies the "design patterns" and OOP/Java programming requirement. This is not keyword overlap — the patterns are named and applied in a real architectural context. Bullet 628eb2b8 provides corroborating evidence of strong Java programming through advanced core Java usage (collections, multithreading with Executor Service, custom exception handling), reflecting solid OOP and clean-code discipline. Together these two bullets constitute strong, direct evidence. Bullet 5b5c2ac4 shows Java development experience but focuses on frameworks/methodology rather than OOP principles or design patterns. Bullet 408e03ae demonstrates Spring ecosystem breadth (including AOP, which relates to design principles) but is framework-level rather than demonstrating raw Java/OOP/design-pattern knowledge. Bullet 49a4203d covers unit testing practices, which is adjacent to clean code but does not address OOP principles or design patterns directly. |
+| Hands-on experience in developing Spring Boot applications, including dependency injection, ORM, exception handling, security, and REST API development | 2 (strong) | The JD requirement covers five sub-areas of Spring Boot development: dependency injection, ORM, exception handling, security, and REST API development. Taken together, the candidate's bullets provide strong, direct evidence across all of these areas:
+
+1. **ORM (Spring Data JPA, Hibernate, JPA)**: Bullet 122d02e6 explicitly calls out hands-on experience with Hibernate, JPA, and Spring Data JPA integrated with Spring Boot — a direct match to the ORM requirement.
+
+2. **Security**: Bullet 408e03ae explicitly lists Spring Security as part of the Spring Framework ecosystem leveraged to build microservices — a direct match to the security requirement.
+
+3. **Dependency Injection & modular architecture**: Bullet 408e03ae also references Spring Core and AOP, which are the foundational DI modules in Spring — directly relevant to the dependency injection requirement.
+
+4. **REST API development**: Bullet 9a6b8765 directly states hands-on experience integrating with Spring Boot REST APIs, handling service calls, data binding, form submissions, validation, and error handling — a direct match to the REST API and exception/error handling requirements.
+
+5. **Spring Boot application development broadly**: Bullet 5b5c2ac4 further reinforces Spring Boot + Spring MVC experience, and bullet fb3fcd7a shows Spring Boot microservices deployment.
+
+No bullets were rejected for mere keyword overlap — each matched bullet demonstrates substantive, hands-on Spring Boot work in the specific sub-domains called out by the JD. The combination of bullets 122d02e6 (ORM), 408e03ae (Security, DI), and 9a6b8765 (REST APIs, error handling) collectively satisfy all dimensions of this must-have requirement, warranting a coverage score of 2. |
+| Understanding of microservices architecture and experience in building and deploying microservices-based applications | 2 (strong) | Multiple bullets directly and substantively demonstrate both building and deploying microservices-based applications:
+
+- **d2c2565e** is the strongest match: the candidate explicitly built and deployed microservices using Spring Boot, Spring Cloud, and Netflix Eureka for service discovery — directly addressing microservices architecture concepts (service discovery is a core microservices pattern) as well as the build/deploy lifecycle.
+- **fb3fcd7a** confirms deploying and supporting Java/Spring Boot microservices on GCP with cloud-native integration (messaging, storage, monitoring, secure access), which maps to real operational microservices experience.
+- **c35a13c9** adds evidence of orchestrating containerized microservices using Kubernetes, covering deployment, scaling, and management — key microservices deployment concerns.
+
+Together these bullets go well beyond keyword overlap: they name specific microservices tools and patterns (Spring Cloud, Eureka/service discovery, Kubernetes orchestration, GCP cloud services). The implied skills of API gateway, circuit breaker, distributed tracing, and service mesh are not explicitly named, but the Spring Cloud ecosystem (used in d2c2565e) directly encompasses several of these (e.g., Spring Cloud Gateway, Spring Cloud Circuit Breaker). The overall evidence is strong and direct for this requirement, warranting a coverage score of 2. |
+| Knowledge of Microsoft Azure cloud platform, including Azure App Service, Azure Functions, Azure SQL, and Azure Cosmos DB | 0 (none) | None of the candidate's bullets reference Microsoft Azure or any of its specific services (Azure App Service, Azure Functions, Azure SQL, Azure Cosmos DB). The bullets demonstrate cloud experience, but exclusively on competing platforms: AWS (Lambda, API Gateway, SNS, SQS, S3, RDS, IAM, CloudWatch) and GCP (Pub/Sub, Cloud Storage, general deployment). While some functional analogues exist — e.g., AWS Lambda is conceptually similar to Azure Functions, and AWS RDS is analogous to Azure SQL — the JD is specifically asking for Azure platform knowledge. Experience with AWS or GCP does not constitute evidence of Azure expertise, even though the underlying concepts may be transferable. The last bullet (Agile) is entirely unrelated. Coverage is 0. |
+| Proficiency in writing SQL queries per industrial standards, fine-tuned for optimization | 2 (strong) | Two bullets provide strong, direct evidence for this requirement:
+
+1. **88504d51** (State Street Bank) explicitly covers all core implied skills: indexing, execution plan analysis, and query tuning in PostgreSQL for high-volume applications — this is a textbook match for SQL query optimization at an industrial level.
+
+2. **9c5a735e** (Tenet Health) directly references refactoring Oracle PL/SQL stored procedures (one of the implied skills), as well as index tuning on a relational database — another direct match to multiple implied skills.
+
+Together, these two bullets cover query optimization, indexing, execution plan analysis, and stored procedures — all four implied skills — across multiple industrial-grade databases (PostgreSQL, Oracle PL/SQL). The remaining bullets were rejected: bullet 122d02e6 is about ORM/JDBC integration rather than SQL query writing or optimization; bullet 37078a32 is about Python data workflows, unrelated to SQL; and bullet 628eb2b8 is about Java backend/REST architecture with no SQL relevance. |
+| Experience with NoSQL databases (e.g., Azure Cosmos DB) | 1 (partial) | The JD explicitly calls out Azure Cosmos DB as the target NoSQL database, and the implied skills (document store, partition keys, NoSQL data modeling) are closely associated with Cosmos DB's specific architecture. The candidate's bullets demonstrate genuine NoSQL experience — specifically with MongoDB, including denormalized document storage, collections, distributed objects, index tuning, and high-performance configurations. These are transferable NoSQL skills (document store model, data modeling concepts) that are adjacent to Cosmos DB. However, none of the bullets mention Azure Cosmos DB, partition keys (a Cosmos DB-specific concept), or any Azure-native data services. The GCP and AWS bullets are irrelevant to this requirement. Since the candidate shows real NoSQL/document store experience but with a different technology (MongoDB vs. Cosmos DB), this is partial/adjacent evidence — coverage 1, not 2. |
+| Familiarity with Continuous Integration (CI) and Continuous Deployment (CD) practices, including automated testing, build pipelines, and deployment strategies | 2 (strong) | All five bullets collectively — and several individually — provide strong, direct evidence for this requirement:
+
+- **b1986b9d** explicitly mentions establishing CI/CD pipelines with Jenkins to automate build, validation, and delivery steps — directly matching the build pipelines and deployment strategies sub-requirements.
+- **b59c103b** is the most comprehensive single bullet: it covers automated CI/CD build and deployment pipelines, TDD, JUnit, and accelerated delivery cycles — hitting automated testing, build pipelines, deployment strategies, and an implied skill (JUnit) all at once.
+- **f99bc1e8** covers CI/CD pipelines using Jenkins and Gradle for automated builds, testing, and deployments — another direct match.
+- **ebc95413** specifically addresses automated testing (unit, integration, E2E) using JUnit and Robot Framework, directly supporting the "automated testing" sub-requirement.
+- **49a4203d** covers unit testing with JUnit and Mockito tied to deployment stages, supporting the automated testing aspect.
+
+There is no keyword-overlap-only issue here; the bullets demonstrate hands-on experience with the exact tools (Jenkins, JUnit) and practices (CI/CD pipelines, automated testing, build automation, deployment) called out in the JD requirement and implied skills. Coverage is clearly 2. |
+| Strong problem-solving abilities, good communication (written & verbal) skills, and the ability to work effectively in a team | 0 (none) | None of the five candidate bullets provide any evidence of soft skills such as problem-solving, written/verbal communication, or teamwork. All bullets are strictly technical in nature, covering AWS serverless architecture, Java/J2EE backend development, Angular UI components, AI-assisted development tooling, and PostgreSQL query optimization. While bullet 827d870f touches on "documentation assembly" (which could loosely imply written communication), this is incidental to the technical focus on AI tooling productivity and does not constitute real evidence of communication skills as a standalone soft skill. No bullet references collaboration, cross-functional teamwork, stakeholder communication, or problem-solving in a meaningful, demonstrable way. |
+| Bachelor's degree in computer science or a related field is required | 0 (none) | None of the five resume bullets address educational background or academic credentials in any way. All bullets describe technical work experience (Java development, testing, front-end architecture, etc.). While the skills demonstrated — Java, Spring Boot, OOAD, Angular, etc. — are consistent with a computer science education, they do not constitute evidence of holding a Bachelor's degree or any degree. Work experience in a related field is not a substitute for the stated credential requirement. No coverage can be awarded. |
+| Overall experience range of 6-10 years | 1 (partial) | None of the resume bullets explicitly state total years of experience. However, the candidate has held roles across at least three distinct employers — Tenet Health, State Street Bank, and Fannie Mae — covering multiple technologies (MongoDB, Oracle PL/SQL, GCP, Spring Boot, Angular, PostgreSQL, Python, etc.), suggesting a meaningful breadth of experience. This provides partial/adjacent evidence that the candidate has accumulated several years of professional experience, but without explicit tenure dates or a stated total years of experience, it is impossible to confirm they fall within the 6-10 year range. All bullets are included as collectively they imply multi-employer, multi-role experience, but coverage is capped at 1 (partial) because no bullet directly asserts total years of experience. |
+| Azure or GCP experience (preferred) | 2 (strong) | Three bullets from the candidate's Fannie Mae role provide strong, direct evidence of GCP experience. The first (fb3fcd7a) describes hands-on deployment and support of microservices on GCP with specific cloud services for messaging, storage, monitoring, and secure access — directly matching GCP services usage. The second (3ac0b582) explicitly references GCP for cloud-based application deployment and management. The third (fa272745) calls out specific GCP services: Pub/Sub for event-driven communication and Cloud Storage for data workflows — further demonstrating practical GCP services knowledge. Together, these bullets go well beyond keyword overlap and demonstrate real, substantive GCP experience. The two AWS bullets (47f5fb94 and 0e152dce) were not counted, as AWS is neither Azure nor GCP. |
