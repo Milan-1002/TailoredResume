@@ -10,7 +10,7 @@ from pydantic import BaseModel
 
 from db import save_bullets
 from embeddings import embed_texts
-from llm import call_structured
+from llm import call_structured, run_concurrent
 from models import ResumeBullet
 from prompts import RESUME_EXTRACTION_SYSTEM_PROMPT, RESUME_SEGMENTATION_SYSTEM_PROMPT
 
@@ -138,9 +138,12 @@ def parse_resume(path: Path) -> list[ResumeBullet]:
     text = read_resume_text(path)
     sections = segment_resume(text)
 
+    # Each section (job) is extracted independently, so run these concurrently
+    # instead of one-at-a-time — cuts upload time roughly proportional to the
+    # number of jobs on the resume.
     bullets: list[ResumeBullet] = []
-    for section in sections:
-        bullets.extend(extract_bullets_for_section(section))
+    for section_bullets in run_concurrent(extract_bullets_for_section, sections):
+        bullets.extend(section_bullets)
 
     if path.suffix.lower() == ".docx":
         match_bullets_to_paragraphs(bullets, path)

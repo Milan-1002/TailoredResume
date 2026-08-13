@@ -1,7 +1,7 @@
 import numpy as np
 
 from embeddings import embed_text
-from llm import call_structured
+from llm import call_structured, run_concurrent
 from models import JDRequirement, MatchResult, ResumeBullet
 from prompts import MATCH_JUDGE_SYSTEM_PROMPT
 
@@ -69,4 +69,7 @@ def match_requirement(requirement: JDRequirement, bullets: list[ResumeBullet]) -
 
 
 def match_all(requirements: list[JDRequirement], bullets: list[ResumeBullet]) -> list[MatchResult]:
-    return [match_requirement(req, bullets) for req in requirements]
+    # Each requirement is judged independently against the bullet pool, so these run
+    # concurrently instead of one-at-a-time — this is the single biggest latency win
+    # in the whole pipeline, since a JD typically has 8-12 requirements.
+    return run_concurrent(lambda req: match_requirement(req, bullets), requirements)

@@ -1,4 +1,6 @@
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from typing import Callable, TypeVar
 
 import httpx
 from anthropic import Anthropic
@@ -9,6 +11,14 @@ load_dotenv(Path(__file__).parent / ".env")
 
 MODEL = "claude-sonnet-4-6"
 REQUEST_TIMEOUT = 60.0
+
+# These calls are I/O-bound (waiting on network round trips), so a thread pool gives
+# real parallelism despite the GIL. Bounded rather than unbounded so a JD with many
+# requirements doesn't fire off dozens of simultaneous requests and trip API rate limits.
+MAX_CONCURRENT_CALLS = 6
+
+T = TypeVar("T")
+R = TypeVar("R")
 
 _client: Anthropic | None = None
 
@@ -53,3 +63,15 @@ def call_structured(
         if block.type == "tool_use" and block.name == tool_name:
             return schema.model_validate(block.input)
     raise RuntimeError(f"Claude did not return a {tool_name} tool_use block")
+
+
+def run_concurrent(fn: Callable[[T], R], items: list[T]) -> list[R]:
+    """Runs fn(item) for each item in a bounded thread pool instead of a sequential
+    loop — for independent LLM/embedding calls (e.g. judging N JD requirements, one
+    per requirement) this turns N sequential network round trips into ceil(N /
+    MAX_CONCURRENT_CALLS) parallel batches. Preserves input order in the result."""
+    if not items:
+        return []
+    with ThreadPoolExecutor(max_workers=min(MAX_CONCURRENT_CALLS, len(items))) as executor:
+        futures = [executor.submit(fn, item) for item in items]
+        return [f.result() for f in futures]

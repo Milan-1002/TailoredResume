@@ -59,3 +59,39 @@ class RewrittenBullet(BaseModel):
 
 class TailoredResume(BaseModel):
     bullets: list[RewrittenBullet]
+
+
+class ProposedChange(BaseModel):
+    id: str  # f"{bullet_id}__{change_type}"
+    bullet_id: str
+    employer: str
+    role: str
+    change_type: Literal["rewrite", "keyword_injection", "tech_swap"]
+    original_text: str
+    proposed_text: str
+    rationale: str
+    related_requirement: str | None
+    requires_confirmation: bool = False
+    confirmation_prompt: str | None = None
+
+
+class TailorAnalyzeResponse(BaseModel):
+    parsed_jd: ParsedJD
+    report: ScoreReport
+    proposed_changes: list[ProposedChange]
+
+
+class FinalizeBullet(BaseModel):
+    bullet_id: str
+    text: str
+
+
+class FinalizeRequest(BaseModel):
+    bullets: list[FinalizeBullet]
+
+
+class FinalizeResponse(BaseModel):
+    docx_url: str | None
+    pdf_url: str | None
+    edited_count: int
+    skipped_count: int
